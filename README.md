@@ -9,4 +9,3 @@ License : Creative Commons Attribution License
 Custom modifications to the free download to support alternatives to document.write()
 
 Handfull of custom modifications to support internal requirements.
-

@@ -56,7 +56,8 @@
 	</b:if>
 
 	&lt;style type=&quot;text/css&quot;&gt;&lt;!-- /* 
-	<b:skin><![CDATA[/*
+	<b:skin><![CDATA[
+
 /*
 -----------------------------------------------
 Name    : Gossip
@@ -65,6 +66,14 @@ Url     : http://www.Themeswear.com/
 License : Creative Commons Attribution License
 [ Use This With Proper Credit ]
 ----------------------------------------------- */
+
+
+/* Variable definitions
+   ====================
+
+<Variable name="someString" description="some string color" type="url" default="http://3.bp.blogspot.com/-_ukeKIWLLSY/XFPf6x-ixxI/AAAAAAAAFxo/jckak-rjiCQdxDbrpsFJAJJ5ClSouHJngCK4BGAYYCw/s1600/dreaddymck.jpg" value="http://3.bp.blogspot.com/-_ukeKIWLLSY/XFPf6x-ixxI/AAAAAAAAFxo/jckak-rjiCQdxDbrpsFJAJJ5ClSouHJngCK4BGAYYCw/s1600/dreaddymck.jpg"/>
+
+*/
 
 /*****************************************
 Normalize CSS
@@ -2684,7 +2693,7 @@ Post Bottom
 	clear: both;
 }
 .post-meta-bottom a:nth-child(n+5) {
-	display: none;
+	<!-- display: none; -->
 }
 .widget-tags>a:hover {
 	background-color: #777;
@@ -4039,6 +4048,8 @@ body#layout footer:before {
 	display: inline-block;
 }
 
+
+
 ]]></b:template-skin>
 <b:if cond='data:blog.pageType != &quot;item&quot;'>
 <b:if cond='data:blog.pageType != &quot;static_page&quot;'>
@@ -4066,6 +4077,8 @@ body#layout footer:before {
 <!-- Links END-->
 
 <!-- fix for Passive Event Listeners warning-->
+
+
 
 <script type='text/javascript'>//<![CDATA[
 
@@ -4437,6 +4450,9 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 &lt;/head&gt;&lt;!--<head/>--&gt;
 <!--<body>-->
 <body class='has-load-animation'>
+
+$sidebarbodyfont
+
 <div class='body-overlay'/>
 	<div class='wrapper fixed-layout'>
 
@@ -4447,53 +4463,25 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 			<div class='header-content'>
 				<!-- DREADDYMCK CUSTOM -->
 				<!-- Begin Main Logo -->
+
 				<div class='main-logo'>
 				<b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
+				
 <b:widget id='Header1' locked='true' title='development (Header)' type='Header' version='1'>
+
   <b:widget-settings>
-	<b:if cond='data:blog.homepageUrl == &quot;https://iandigaming.blogspot.com/&quot;'>                            
-	  <b:widget-setting name='displayUrl'>http://4.bp.blogspot.com/-fabpYOi5u_o/XFuzfjHIleI/AAAAAAAAF3o/Js4qqFQ7ClEeI5k-LT1r99V6gcT9mQ4fwCK4BGAYYCw/s1600/southparkdreaddymck_ekL_icon.ico</b:widget-setting>
-	  <b:widget-setting name='displayHeight'>256</b:widget-setting>
-	  <b:widget-setting name='sectionWidth'>477</b:widget-setting>
-	  <b:widget-setting name='useImage'>true</b:widget-setting>
-	  <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-	  <b:widget-setting name='imagePlacement'>BEFORE_DESCRIPTION</b:widget-setting>
-	  <b:widget-setting name='displayWidth'>256</b:widget-setting>
-	<b:elseif cond='data:blog.homepageUrl == &quot;https://dreaddymck.blogspot.com/&quot;'/>                            
-	  <b:widget-setting name='displayUrl'>http://3.bp.blogspot.com/-_ukeKIWLLSY/XFPf6x-ixxI/AAAAAAAAFxo/jckak-rjiCQdxDbrpsFJAJJ5ClSouHJngCK4BGAYYCw/s1600/dreaddymck.jpg</b:widget-setting>
+	
+	  <b:widget-setting name='displayUrl'>($someString)</b:widget-setting>
 	  <b:widget-setting name='displayHeight'>180</b:widget-setting>
 	  <b:widget-setting name='sectionWidth'>477</b:widget-setting>
 	  <b:widget-setting name='useImage'>true</b:widget-setting>
 	  <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
 	  <b:widget-setting name='imagePlacement'>BEFORE_DESCRIPTION</b:widget-setting>
 	  <b:widget-setting name='displayWidth'>180</b:widget-setting>
-	<b:elseif cond='data:blog.homepageUrl == &quot;https://iandiwatching.blogspot.com/&quot;'/>
-	  <b:widget-setting name='displayUrl'/>
-	  <b:widget-setting name='displayHeight'>0</b:widget-setting>
-	  <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
-	  <b:widget-setting name='useImage'>false</b:widget-setting>
-	  <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-	  <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
-	  <b:widget-setting name='displayWidth'>0</b:widget-setting>    
-	<b:elseif cond='data:blog.homepageUrl == &quot;https://iandicoding.blogspot.com/&quot;'/>
-	  <b:widget-setting name='displayUrl'>http://2.bp.blogspot.com/-goNPB30snwI/XFuz82yNjUI/AAAAAAAAF30/b6CgGEZCcaA_dGElJ8exabju90Q3j39bQCK4BGAYYCw/s1600/Computer-Guy-2.png</b:widget-setting>
-	  <b:widget-setting name='displayHeight'>523</b:widget-setting>
-	  <b:widget-setting name='sectionWidth'>477</b:widget-setting>
-	  <b:widget-setting name='useImage'>true</b:widget-setting>
-	  <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-	  <b:widget-setting name='imagePlacement'>BEFORE_DESCRIPTION</b:widget-setting>
-	  <b:widget-setting name='displayWidth'>900</b:widget-setting> 
-	<b:else/>
-	  <b:widget-setting name='displayUrl'/>
-	  <b:widget-setting name='displayHeight'>0</b:widget-setting>
-	  <b:widget-setting name='sectionWidth'>477</b:widget-setting>
-	  <b:widget-setting name='useImage'>false</b:widget-setting>
-	  <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-	  <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
-	  <b:widget-setting name='displayWidth'>0</b:widget-setting>                             
-	</b:if>
-  </b:widget-settings>
-  <b:includable id='main'>
+  
+	</b:widget-settings>
+  
+	<b:includable id='main'>
 					<b:if cond='data:useImage'>
 					  <b:if cond='data:imagePlacement == &quot;BEHIND&quot;'>
 						<!--
@@ -5662,13 +5650,13 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
    </div>
    <!-- /.widget-tags -->
    <!-- Begin share Icons -->
-   <div class='social-icons'>
-	<a data-toggle='tooltip' expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Facebook'><i class='fa fa-facebook'/></a>
-	<a data-toggle='tooltip' data-via='data:blog.title' expr:data-text='data:post.title' expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Twitter'><i class='fa fa-twitter'/></a>
-	<a data-toggle='tooltip' expr:href='&quot;http://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.thumbnailUrl + &quot;&amp;description=&quot; + data:post.snippet' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Pin it'><i class='fa fa-pinterest-p'/></a>
-	<a data-toggle='tooltip' expr:href='&quot;http://www.linkedin.com/shareArticle?mini=true&amp;url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title + &quot;&amp;source=&quot; + data:blog.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' title='Linkedin'><i class='fa fa-linkedin'/></a>
-	<a data-toggle='tooltip' expr:href='&quot;http://www.stumbleupon.com/submit?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Stumle-Upon'><i class='fa fa-stumbleupon'/></a>
-   </div>
+	<div class='social-icons'>
+		<a data-toggle='tooltip' expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Facebook'><i class='fa fa-facebook'/></a>
+		<a data-toggle='tooltip' data-via='data:blog.title' expr:data-text='data:post.title' expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Twitter'><i class='fa fa-twitter'/></a>
+		<a data-toggle='tooltip' expr:href='&quot;http://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.thumbnailUrl + &quot;&amp;description=&quot; + data:post.snippet' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Pin it'><i class='fa fa-pinterest-p'/></a>
+		<a data-toggle='tooltip' expr:href='&quot;http://www.linkedin.com/shareArticle?mini=true&amp;url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title + &quot;&amp;source=&quot; + data:blog.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' title='Linkedin'><i class='fa fa-linkedin'/></a>
+		<a data-toggle='tooltip' expr:href='&quot;http://www.stumbleupon.com/submit?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' title='Stumle-Upon'><i class='fa fa-stumbleupon'/></a>
+	</div>
    <!-- /.social-icons -->
 </div>
  
