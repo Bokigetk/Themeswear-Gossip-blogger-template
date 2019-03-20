@@ -1,0 +1,1 @@
+# Themeswear-Gossip-blogger-template
