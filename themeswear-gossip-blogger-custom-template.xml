@@ -4127,86 +4127,6 @@ imgr[0] = "https://2.bp.blogspot.com/-9gJu7sWy-Do/Wz7pzcdOMGI/AAAAAAAAFB4/qzsBfB
 
 </b:if>
 
-<!-- DREADDYMCK CUSTOM -->
-<!-- VARIABLE DEFINITIONS -->
-<b:if cond='data:blog.pageType == &quot;item&quot;'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "item";
-//]]></script>
-
-</b:if>
-<b:if cond='data:blog.url == data:blog.homepageUrl'> 
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "index";
-//]]></script>
-
-</b:if>
-<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "static_page";
-//]]></script>
-
-</b:if>
-
-<b:if cond='data:blog.searchQuery'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "searchQuery";
-//]]></script>
-
-</b:if>
-
-<b:if cond='data:blog.searchLabel'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "searchLabel";
-//]]></script>
-
-</b:if>
-
-<!-- DREADDMCK CUSTOM -->
-<!-- BLOGGER FEED DISPLAY CONTROL -->
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-
-$(function() {
-
-		var elements = $("[id*='Feed']:not([id$='feedItemListDisplay'])");
-
-    elements.hide();
-
-		if(typeof(pageType) !== 'undefined'){
-
-			var feeds = {
-				"Feed1": {"host":["iandicoding.blogspot.com"], pageType: ["item"] },
-				"Feed2": {"host":["iandigaming.blogspot.com"], pageType: ["item"] },
-				"Feed3": {"host":["iandiwatching.blogspot.com"], pageType: ["item","static_page","searchQuery","searchLabel"] },
-				"Feed4": {"host":["dreaddymck.blogspot.com"], pageType: ["index","item"] },
-				"Feed5": {"host":["listgrotto.com"], pageType: ["searchLabel"] },
-			}
-
-			elements.each(function(){
-				
-				if( 
-					
-					feeds[this.id] && 
-					! feeds[this.id].host.includes(window.location.host) && 
-					feeds[this.id].pageType.includes(pageType) 
-				
-				){
-
-					$(this).show();
-				
-				}			
-
-			});
-		}
-});
-
-//]]></script>
 
 <script type='text/javascript'>//<![CDATA[
 
@@ -4491,6 +4411,45 @@ window[_0x8299[14]]=function()
 var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D\x63\x2F","\x72\x65\x70\x6C\x61\x63\x65","\x65\x61\x63\x68","\x2E\x63\x6F\x6D\x6D\x65\x6E\x74\x73\x20\x2E\x63\x6F\x6D\x6D\x65\x6E\x74\x73\x2D\x63\x6F\x6E\x74\x65\x6E\x74\x20\x2E\x61\x76\x61\x74\x61\x72\x2D\x69\x6D\x61\x67\x65\x2D\x63\x6F\x6E\x74\x61\x69\x6E\x65\x72\x20\x69\x6D\x67","\x2F\x73\x33\x35\x2F","\x72\x65\x61\x64\x79"];$(document)[_0xbbea[7]](function(){$(_0xbbea[5])[_0xbbea[4]](function(){this[_0xbbea[0]]=this[_0xbbea[0]][_0xbbea[3]](_0xbbea[1],_0xbbea[2])});$(_0xbbea[5])[_0xbbea[4]](function(){this[_0xbbea[0]]=this[_0xbbea[0]][_0xbbea[3]](_0xbbea[6],_0xbbea[2])})})
   //]]>
 </script>
+
+
+<!-- DREADDYMCK CUSTOM -->
+<!-- VARIABLE DEFINITIONS -->
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "item";
+//]]></script>
+
+</b:if>
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "index";
+//]]></script>
+
+</b:if>
+<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "static_page";
+//]]></script>
+
+</b:if>
+<b:if cond='data:blog.searchQuery'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "searchQuery";
+//]]></script>
+
+</b:if>
+<b:if cond='data:blog.searchLabel'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "searchLabel";
+//]]></script>
+
+</b:if>	
 
 
 &lt;/head&gt;&lt;!--<head/>--&gt;
@@ -6255,9 +6214,9 @@ a.btn {
 		  </b:with>
 		</b:includable>
 </b:widget>
-<b:widget id='Feed1' locked='false' title='I &amp;amp; I Coding' type='Feed'>
+<b:widget id='Feed1' locked='false' title='' type='Feed'>
   <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://iandicoding.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='feedUrl'>https://iandicoding.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
     <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
     <b:widget-setting name='numItemsShow'>1</b:widget-setting>
     <b:widget-setting name='showItemDate'>false</b:widget-setting>
@@ -6273,9 +6232,9 @@ a.btn {
     <b:include name='quickedit'/>
   </b:includable>
 </b:widget>
-<b:widget id='Feed2' locked='false' title='I &amp;amp; I Gaming' type='Feed'>
+<b:widget id='Feed2' locked='false' title='' type='Feed'>
   <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://iandigaming.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='feedUrl'>https://iandigaming.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
     <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
     <b:widget-setting name='numItemsShow'>1</b:widget-setting>
     <b:widget-setting name='showItemDate'>false</b:widget-setting>
@@ -6291,9 +6250,9 @@ a.btn {
     <b:include name='quickedit'/>
   </b:includable>
 </b:widget>
-<b:widget id='Feed3' locked='false' title='I and I Watching' type='Feed'>
+<b:widget id='Feed3' locked='false' title='' type='Feed'>
   <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://iandiwatching.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='feedUrl'>https://iandiwatching.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
     <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
     <b:widget-setting name='numItemsShow'>1</b:widget-setting>
     <b:widget-setting name='showItemDate'>false</b:widget-setting>
@@ -6309,9 +6268,9 @@ a.btn {
     <b:include name='quickedit'/>
   </b:includable>
 </b:widget>
-<b:widget id='Feed4' locked='false' title='I and I Dreaddymck' type='Feed'>
+<b:widget id='Feed4' locked='false' title='' type='Feed'>
   <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://dreaddymck.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='feedUrl'>https://dreaddymck.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
     <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
     <b:widget-setting name='numItemsShow'>1</b:widget-setting>
     <b:widget-setting name='showItemDate'>false</b:widget-setting>
@@ -6327,7 +6286,7 @@ a.btn {
     <b:include name='quickedit'/>
   </b:includable>
 </b:widget>
-<b:widget id='Feed5' locked='false' title='Listgrotto' type='Feed'>
+<b:widget id='Feed5' locked='false' title='' type='Feed'>
   <b:widget-settings>
     <b:widget-setting name='feedUrl'>https://listgrotto.com/feed/</b:widget-setting>
     <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
@@ -7605,6 +7564,53 @@ $(window).load(function() {
 
 $(window).resize(function(){
 	equalheight('.related-grid li');
+});
+
+//]]></script>
+
+
+<!-- DREADDMCK CUSTOM -->
+<!-- BLOGGER FEED DISPLAY CONTROL -->
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+
+$(function() {
+
+		if(typeof(pageType) !== 'undefined'){
+			
+			/*
+				Note: 
+				gossip_feeds.Feed*.host feed hidden if match.
+				gossip_feeds.Feed*.pageType page to display.					
+			*/
+
+			var elements = $("[id*='Feed']:not([id$='feedItemListDisplay'])");
+			var gossip_feeds = {
+				"Feed1": {"host":["iandicoding.blogspot.com"], pageType: ["item"],title:"I & I Coding"},
+				"Feed2": {"host":["iandigaming.blogspot.com"], pageType: ["item"],title:"I & I Gaming" },
+				"Feed3": {"host":["iandiwatching.blogspot.com"], pageType: ["item","static_page","searchQuery","searchLabel"],title:"I & I Watching" },
+				"Feed4": {"host":["dreaddymck.blogspot.com"], pageType: ["index","item"],title:"I & I Dreaddymck" },
+				"Feed5": {"host":["listgrotto.com"], pageType: ["searchLabel"],title:"Listrotto" },
+			}
+
+			elements.hide();
+
+			elements.each(function(){
+				
+				if( 
+					gossip_feeds[this.id] && 
+					! gossip_feeds[this.id].host.includes(window.location.host) && 
+					gossip_feeds[this.id].pageType.includes(pageType) 
+				)
+				{
+					$(this).show();	
+					if( ! $(this).find("h2").html().trim() && gossip_feeds[this.id].title ){
+						$(this).find("h2").html( gossip_feeds[this.id].title )
+					}			
+				}			
+
+			});
+		}
 });
 
 //]]></script>
