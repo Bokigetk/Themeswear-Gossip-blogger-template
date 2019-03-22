@@ -7605,7 +7605,17 @@ $(function() {
 				{
 					$(this).show();	
 					if( ! $(this).find("h2").html().trim() && gossip_feeds[this.id].title ){
-						$(this).find("h2").html( gossip_feeds[this.id].title )
+
+						var elem = $('<a>',{
+								text: gossip_feeds[this.id].title,
+								title: gossip_feeds[this.id].title,
+								href: 'https://' + gossip_feeds[this.id].host,
+								click: function(){ BlahFunc( options.rowId );return false;},
+								target:"_blank"
+						});
+
+						$(this).find("h2").append(elem);
+
 					}			
 				}			
 
