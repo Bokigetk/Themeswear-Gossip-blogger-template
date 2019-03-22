@@ -4064,38 +4064,12 @@ body#layout footer:before {
 </style>
 </b:if>
 
-<!-- Links -->
+<!-- THEME EXTERNAL -->
 <script src='https://use.fontawesome.com/90ef38dbc3.js'/>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' type='text/javascript'/>
-<!-- Links END-->
-
-<!-- fix for Passive Event Listeners warning-->
 
 
-
-<script type='text/javascript'>//<![CDATA[
-
-jQuery.event.special.touchstart = 
-{
-  setup: function( _, ns, handle )
-  {
-	if ( ns.includes("noPreventDefault") ) 
-	{
-	  this.addEventListener("touchstart", handle, { passive: false });
-	} 
-	else 
-	{
-	  this.addEventListener("touchstart", handle, { passive: true });
-	}
-  }
-};
-
-//]]>
-</script> 
-
-
-
-<!-- dreaddymck crap -->
+<!-- THEME DISPLAY -->
 <script type='text/javascript'>//<![CDATA[
 imgr = new Array();
 imgr[0] = ""; // set your own image
@@ -4118,7 +4092,7 @@ imgr[0] ="https://3.bp.blogspot.com/-HtjmGwLoKYA/XFPcRJi3MXI/AAAAAAAAFxM/c8RwWsu
 </script>                            
 
 
-<b:elseif cond='data:blog.homepageUrl == &quot;https://dreaddymck.blogspot.com/&quot;' />   
+<b:elseif cond='data:blog.homepageUrl == &quot;https://dreaddymck.blogspot.com/&quot;'/>   
 
 <script type='text/javascript'>
 //<![CDATA[
@@ -4143,7 +4117,7 @@ imgr[0] = "https://3.bp.blogspot.com/-2niLlpDaSmY/XFPdA09ghbI/AAAAAAAAFxU/PSZrkC
 </script>
 
  
-<b:elseif cond='data:blog.homepageUrl == &quot;https://acidstainpro.blogspot.com/&quot;' />
+<b:elseif cond='data:blog.homepageUrl == &quot;https://acidstainpro.blogspot.com/&quot;'/>
 
 <script type='text/javascript'>
 //<![CDATA[
@@ -4153,9 +4127,88 @@ imgr[0] = "https://2.bp.blogspot.com/-9gJu7sWy-Do/Wz7pzcdOMGI/AAAAAAAAFB4/qzsBfB
 
 </b:if>
 
-<!-- dreaddymck crap -->
+<!-- DREADDYMCK CUSTOM -->
+<!-- VARIABLE DEFINITIONS -->
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
 
-<script type="text/javascript">//<![CDATA[
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "item";
+//]]></script>
+
+</b:if>
+<b:if cond='data:blog.url == data:blog.homepageUrl'> 
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "index";
+//]]></script>
+
+</b:if>
+<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "static_page";
+//]]></script>
+
+</b:if>
+
+<b:if cond='data:blog.searchQuery'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "searchQuery";
+//]]></script>
+
+</b:if>
+
+<b:if cond='data:blog.searchLabel'>
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+var pageType = "searchLabel";
+//]]></script>
+
+</b:if>
+
+<!-- DREADDMCK CUSTOM -->
+<!-- BLOGGER FEED DISPLAY CONTROL -->
+
+<script language='javascript' type='text/javascript'>//<![CDATA[
+
+$(function() {
+
+		var elements = $("[id*='Feed']:not([id$='feedItemListDisplay'])");
+
+    elements.hide();
+
+		if(typeof(pageType) !== 'undefined'){
+
+			var feeds = {
+				"Feed1": {"host":["iandicoding.blogspot.com"], pageType: ["item"] },
+				"Feed2": {"host":["iandigaming.blogspot.com"], pageType: ["item"] },
+				"Feed3": {"host":["iandiwatching.blogspot.com"], pageType: ["item","static_page","searchQuery","searchLabel"] },
+				"Feed4": {"host":["dreaddymck.blogspot.com"], pageType: ["index","item"] },
+				"Feed5": {"host":["listgrotto.com"], pageType: ["searchLabel"] },
+			}
+
+			elements.each(function(){
+				
+				if( 
+					
+					feeds[this.id] && 
+					! feeds[this.id].host.includes(window.location.host) && 
+					feeds[this.id].pageType.includes(pageType) 
+				
+				){
+
+					$(this).show();
+				
+				}			
+
+			});
+		}
+});
+
+//]]></script>
+
+<script type='text/javascript'>//<![CDATA[
 
 function _request(req, cb) {
 
@@ -4457,22 +4510,17 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 
 				<div class='main-logo'>
 				<b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
-				
 <b:widget id='Header1' locked='true' title='development (Header)' type='Header' version='1'>
-
   <b:widget-settings>
-	
-	  <b:widget-setting name='displayUrl'/>
-	  <b:widget-setting name='displayHeight'>180</b:widget-setting>
-	  <b:widget-setting name='sectionWidth'>477</b:widget-setting>
-	  <b:widget-setting name='useImage'>true</b:widget-setting>
-	  <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-	  <b:widget-setting name='imagePlacement'>BEFORE_DESCRIPTION</b:widget-setting>
-	  <b:widget-setting name='displayWidth'>180</b:widget-setting>
-  
-	</b:widget-settings>
-  
-	<b:includable id='main'>
+    <b:widget-setting name='displayUrl'/>
+    <b:widget-setting name='displayHeight'>0</b:widget-setting>
+    <b:widget-setting name='sectionWidth'>477</b:widget-setting>
+    <b:widget-setting name='useImage'>false</b:widget-setting>
+    <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+    <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+    <b:widget-setting name='displayWidth'>0</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
 					<b:if cond='data:useImage'>
 					  <b:if cond='data:imagePlacement == &quot;BEHIND&quot;'>
 						<!--
@@ -4554,16 +4602,16 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 					<!-- Begin Social Icons -->
 					<div class='social-icons' itemscope='' itemtype='http://schema.org/Organization'>
 						<b:section class='header-social' id='header-social' maxwidgets='1' name='Social Header' showaddelement='yes'>
-						  <b:widget id='LinkList215' locked='true' title='Social Buttons' type='LinkList' version='1'>
-							<b:includable id='main'>
+<b:widget id='LinkList215' locked='true' title='Social Buttons' type='LinkList' version='1'>
+  <b:includable id='main'>
 			<div class='widget-content'>
 				<b:loop values='data:links' var='link'>
 				 <a data-placement='bottom' data-toggle='tooltip' expr:class='data:link.name' expr:href='data:link.target' expr:title='data:link.name' itemprop='sameAs'/>
 				</b:loop>
 			</div>
 	</b:includable>
-						  </b:widget>
-						</b:section>
+</b:widget>
+</b:section>
 					</div><!-- /.social-icons -->
 					<!-- End Social Icons -->
 
@@ -4599,15 +4647,15 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 							</ul>                           
 							
 
-							<b:elseif cond='data:blog.homepageUrl == &quot;https://dreaddymck.blogspot.com/&quot;' />
+							<b:elseif cond='data:blog.homepageUrl == &quot;https://dreaddymck.blogspot.com/&quot;'/>
 
 							<ul>
 							  	<li itemprop='name'><a href='https://dreaddymck.com' itemprop='url'>Dreaddymck.com</a></li>
 							</ul>                             
 							
-							<b:elseif cond='data:blog.homepageUrl == &quot;https://iandiwatching.blogspot.com/&quot;' />
-							<b:elseif cond='data:blog.homepageUrl == &quot;https://iandicoding.blogspot.com/&quot;' />
-							<b:elseif cond='data:blog.homepageUrl == &quot;https://acidstainpro.blogspot.com/&quot;' />
+							<b:elseif cond='data:blog.homepageUrl == &quot;https://iandiwatching.blogspot.com/&quot;'/>
+							<b:elseif cond='data:blog.homepageUrl == &quot;https://iandicoding.blogspot.com/&quot;'/>
+							<b:elseif cond='data:blog.homepageUrl == &quot;https://acidstainpro.blogspot.com/&quot;'/>
 
 							</b:if>                             
 													   
@@ -4641,16 +4689,6 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 						</li>
 
 						</b:if>
-						
-						<!-- 
-						<b:if cond='data:blog.homepageUrl != "https://acidstainpro.blogspot.com/"'>                         
-						<li>
-							<a href='https://acidstainpro.blogspot.com/'>development</a>                         
-						</li>
-						</b:if>                         
-						-->
-
-
 					   
 					</ul>
 				</div><!-- /.nav-menu -->
@@ -4671,8 +4709,8 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 <!-- DREADDYMCK CUSTOM -->
 <b:if cond='data:blog.url == data:blog.homepageUrl'> 
 	<div>
-		<script src="/feeds/posts/default/?max-results=4&amp;orderby=published&amp;alt=json-in-script&amp;callback=owlimg"/>
-		<script src="/feeds/posts/default/?max-results=4&amp;orderby=published&amp;alt=json-in-script&amp;callback=owlcontent"/>
+		<script src='/feeds/posts/default/?max-results=4&amp;orderby=published&amp;alt=json-in-script&amp;callback=owlimg'/>
+		<script src='/feeds/posts/default/?max-results=4&amp;orderby=published&amp;alt=json-in-script&amp;callback=owlcontent'/>
 	</div>
 </b:if>
 
@@ -4689,32 +4727,32 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 					<div class='col-md-8'>
 						<div class='content'> 
 								  <b:section class='content' id='content' showaddelement='no'>
-									 <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'>
-									   <b:widget-settings>
-										 <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-										 <b:widget-setting name='style.textcolor'>#4737be</b:widget-setting>
-										 <b:widget-setting name='showShareButtons'>false</b:widget-setting>
-										 <b:widget-setting name='authorLabel'>By</b:widget-setting>
-										 <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-										 <b:widget-setting name='style.urlcolor'>#fefefe</b:widget-setting>
-										 <b:widget-setting name='showAuthor'>false</b:widget-setting>
-										 <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-										 <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
-										 <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-										 <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
-										 <b:widget-setting name='timestampLabel'>on</b:widget-setting>
-										 <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
-										 <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-										 <b:widget-setting name='showLabels'>true</b:widget-setting>
-										 <b:widget-setting name='showLocation'>true</b:widget-setting>
-										 <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-										 <b:widget-setting name='postsPerAd'>4</b:widget-setting>
-										 <b:widget-setting name='showBacklinks'>true</b:widget-setting>
-										 <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-										 <b:widget-setting name='showInlineAds'>true</b:widget-setting>
-										 <b:widget-setting name='showReactions'>false</b:widget-setting>
-									   </b:widget-settings>
-									   <b:includable id='main' var='top'>
+<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'>
+  <b:widget-settings>
+    <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+    <b:widget-setting name='style.textcolor'>#4737be</b:widget-setting>
+    <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+    <b:widget-setting name='authorLabel'>By</b:widget-setting>
+    <b:widget-setting name='showCommentLink'>false</b:widget-setting>
+    <b:widget-setting name='style.urlcolor'>#fefefe</b:widget-setting>
+    <b:widget-setting name='showAuthor'>false</b:widget-setting>
+    <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+    <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+    <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+    <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
+    <b:widget-setting name='timestampLabel'>on</b:widget-setting>
+    <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+    <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+    <b:widget-setting name='showLabels'>true</b:widget-setting>
+    <b:widget-setting name='showLocation'>true</b:widget-setting>
+    <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+    <b:widget-setting name='postsPerAd'>4</b:widget-setting>
+    <b:widget-setting name='showBacklinks'>true</b:widget-setting>
+    <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
+    <b:widget-setting name='showInlineAds'>true</b:widget-setting>
+    <b:widget-setting name='showReactions'>false</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main' var='top'>
 										 <!-- Image Append -->
 										 <!-- Image Append For Post -->
 										 <b:if cond='data:blog.pageType == &quot;item&quot;'>
@@ -4777,7 +4815,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 	<data:top.dummyBootstrap/>
   </b:if>
 			</b:includable>
-									   <b:includable id='authorblog'>
+  <b:includable id='authorblog'>
 									<div id='author-box'>
 									  <div class='block-head'>
 										<h3>
@@ -4798,14 +4836,14 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									</div>
 									<!--/entry author-->
 								  </b:includable>
-									   <b:includable id='backlinkDeleteIcon' var='backlink'>
+  <b:includable id='backlinkDeleteIcon' var='backlink'>
 									<span expr:class='&quot;item-control &quot; + data:backlink.adminClass'>
 									  <a expr:href='data:backlink.deleteUrl' expr:title='data:top.deleteBacklinkMsg'>
 										<img src='//www.blogger.com/img/icon_delete13.gif'/>
 									  </a>
 									</span>
 								  </b:includable>
-									   <b:includable id='backlinks' var='post'>
+  <b:includable id='backlinks' var='post'>
 									<a name='links'/>
 									<h4>
 									  <data:post.backlinksLabel/>
@@ -4846,7 +4884,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									  </a>
 									</p>
 								  </b:includable>
-									   <b:includable id='breadcrumb' var='posts'>
+  <b:includable id='breadcrumb' var='posts'>
 					<b:if cond='data:blog.homepageUrl != data:blog.url'> 
 					<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
 					  <div class='breadcrumbs'><span><a expr:href='data:blog.homepageUrl' rel='nofollow'>Home</a></span> / <span><data:blog.pageName/></span>
@@ -4884,7 +4922,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 					</b:if>
 					</b:if>
 			  </b:includable>
-									   <b:includable id='comment-form' var='post'>
+  <b:includable id='comment-form' var='post'>
 					  <div class='comment-form'>
 						<a name='comment-form'/>
 						<b:if cond='data:mobile'>
@@ -4908,7 +4946,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 						</script>
 					  </div>
 					</b:includable>
-									   <b:includable id='commentDeleteIcon' var='comment'>
+  <b:includable id='commentDeleteIcon' var='comment'>
 					  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
 						<b:if cond='data:showCmtPopup'>
 						  <div class='goog-toggle-button'>
@@ -4921,7 +4959,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 						</b:if>
 					  </span>
 					</b:includable>
-									   <b:includable id='comment_count_picker' var='post'>
+  <b:includable id='comment_count_picker' var='post'>
 					  <b:if cond='data:post.commentSource == 1'>
 						<span class='cmt_count_iframe_holder' expr:data-count='data:post.numComments' expr:data-onclick='data:post.addCommentOnclick' expr:data-post-url='data:post.url' expr:data-url='data:post.canonicalUrl'>
 						</span>
@@ -4931,7 +4969,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 						</a>
 					  </b:if>
 					</b:includable>
-									   <b:includable id='comment_picker' var='post'>
+  <b:includable id='comment_picker' var='post'>
 					  <b:if cond='data:post.commentSource == 1'>
 						<b:include data='post' name='iframe_comments'/>
 						<b:elseif cond='data:post.showThreadedComments'/>
@@ -4940,7 +4978,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 						<b:include data='post' name='comments'/>
 					  </b:if>
 					</b:includable>
-									   <b:includable id='comments' var='post'>
+  <b:includable id='comments' var='post'>
 					  <div class='comments' id='comments'>
 						<a name='comments'/>
 						<b:if cond='data:post.allowComments'>
@@ -5047,7 +5085,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 					   
 					  </div>
 					</b:includable>
-									   <b:includable id='feedLinks'>
+  <b:includable id='feedLinks'>
 									<b:if cond='data:blog.pageType != &quot;item&quot;'>
 									  <!-- Blog feed links -->
 									  <b:if cond='data:feedLinks'>
@@ -5068,7 +5106,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									  </div>
 									</b:if>
 								  </b:includable>
-									   <b:includable id='feedLinksBody' var='links'>
+  <b:includable id='feedLinksBody' var='links'>
 									<div class='feed-links'>
 									  <data:feedLinksMsg/>
 									  <b:loop values='data:links' var='f'>
@@ -5081,7 +5119,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									  </b:loop>
 									</div>
 								  </b:includable>
-									   <b:includable id='iframe_comments' var='post'>
+  <b:includable id='iframe_comments' var='post'>
 
 					  <b:if cond='data:post.allowIframeComments'>
 						<script expr:src='data:post.iframeCommentSrc' type='text/javascript'/>
@@ -5092,7 +5130,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 						</b:if>
 					  </b:if>
 					</b:includable>
-									   <b:includable id='mobile-index-post' var='post'>
+  <b:includable id='mobile-index-post' var='post'>
 									<!-- MOBILE INDEX POST HERE -->
 									<div class='mobile-date-outer date-outer'>
 									  <div class='mobile-post-outer'>
@@ -5181,7 +5219,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									  </div>
 									</div>
 								  </b:includable>
-									   <b:includable id='mobile-main' var='top'>
+  <b:includable id='mobile-main' var='top'>
 									<!-- posts -->
 									<div class='blog-posts hfeed'>
 									  <b:include data='top' name='status-message'/>
@@ -5197,7 +5235,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									</div>
 									<b:include name='mobile-nextprev'/>
 								  </b:includable>
-									   <b:includable id='mobile-nextprev'>
+  <b:includable id='mobile-nextprev'>
 									<!-- MOBILE PAGE NAVIGATION LINKS HERE -->
 									<div class='blog-pager' id='blog-pager'>
 									  <b:if cond='data:newerPageUrl'>
@@ -5227,7 +5265,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									</div>
 									<div class='clear'/>
 								  </b:includable>
-									   <b:includable id='mobile-post' var='post'>
+  <b:includable id='mobile-post' var='post'>
 									<!-- MOBILE ITEM POST HERE -->
 									<div class='date-outer'>
 									  <div class='date-posts'>
@@ -5366,7 +5404,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									  </div>
 									</div>
 								  </b:includable>
-									   <b:includable id='nextprev'>
+  <b:includable id='nextprev'>
 									<div class='blog-pager' id='blog-pager'>
 									  <b:if cond='data:newerPageUrl'>
 										<span id='blog-pager-newer-link'>
@@ -5395,7 +5433,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 									</div>
 									<div class='clear'/>
 								  </b:includable>
-									   <b:includable id='post' var='post'>
+  <b:includable id='post' var='post'>
    <li>
    <div class='post-item'>
 
@@ -5685,7 +5723,7 @@ $(document).ready(function () {
 
 <!-- DREADDYMCK CUSTOM -->
 
-<div class="related-slide"></div>
+<div class='related-slide'/>
 
 <script id='related-posts' type='text/javascript'>
 /*<![CDATA[*/
@@ -5741,7 +5779,7 @@ function removeHtmlTag(strx, chop) { var s = strx.split("<"); for (var i = 0; i 
 
 </b:if>
 </b:includable>
-									   <b:includable id='post-404'>
+  <b:includable id='post-404'>
 					<div class='post-404'>
 					   <div class='actions-404'>	
 						  <div class='ops-404'><span>Ops;</span> Sorry, but the page you were trying to view does not exist.</div>					
@@ -5751,7 +5789,7 @@ function removeHtmlTag(strx, chop) { var s = strx.split("<"); for (var i = 0; i 
 						</div></div>
 					</div>
 				</b:includable>
-									   <b:includable id='postQuickEdit' var='post'>
+  <b:includable id='postQuickEdit' var='post'>
 									<b:if cond='data:post.editUrl'>
 									  <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
 										<a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
@@ -5764,7 +5802,7 @@ function removeHtmlTag(strx, chop) { var s = strx.split("<"); for (var i = 0; i 
 									  </span>
 									</b:if>
 								  </b:includable>
-									   <b:includable id='shareButtons' var='post'>
+  <b:includable id='shareButtons' var='post'>
 									<b:if cond='data:top.showEmailButton'>
 									  <a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'>
 										<span class='share-button-link-text'>
@@ -5806,7 +5844,7 @@ function removeHtmlTag(strx, chop) { var s = strx.split("<"); for (var i = 0; i 
 									  </div>
 									</b:if>
 								  </b:includable>
-									   <b:includable id='status-message'>
+  <b:includable id='status-message'>
 <!-- 404 Error -->
 <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
 
@@ -5866,7 +5904,7 @@ a.btn {
 									  <div style='clear: both;'/>
 									</b:if>
 								  </b:includable>
-									   <b:includable id='threaded-comment-form' var='post'>
+  <b:includable id='threaded-comment-form' var='post'>
 					  <div class='comment-form'>
 						<a name='comment-form'/>
 						<b:if cond='data:mobile'>
@@ -5887,7 +5925,7 @@ a.btn {
 						</script>
 					  </div>
 					</b:includable>
-									   <b:includable id='threaded_comment_js' var='post'>
+  <b:includable id='threaded_comment_js' var='post'>
 					  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
 
 					  <script type='text/javascript'>
@@ -6068,7 +6106,7 @@ a.btn {
 						// ]]>
 					  </script>
 					</b:includable>
-									   <b:includable id='threaded_comments' var='post'>
+  <b:includable id='threaded_comments' var='post'>
   <div class='comments' id='comments'>
 	<a name='comments'/>
 	<h4><data:post.commentLabelFull/>:</h4>
@@ -6102,31 +6140,31 @@ a.btn {
 	</div>
   </div>
 </b:includable>
-									 </b:widget>
-									 <b:widget cond='data:view.isHomepage' id='AdSense1' locked='false' title='' type='AdSense'>
-									   <b:widget-settings>
-										 <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
-										 <b:widget-setting name='style.textcolor'>#4737be</b:widget-setting>
-										 <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-										 <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-										 <b:widget-setting name='style.urlcolor'>#fefefe</b:widget-setting>
-										 <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
-										 <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-									   </b:widget-settings>
-									   <b:includable id='main'>
+</b:widget>
+<b:widget cond='data:view.isHomepage' id='AdSense1' locked='false' title='' type='AdSense' version='1'>
+  <b:widget-settings>
+    <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
+    <b:widget-setting name='style.textcolor'>#4737be</b:widget-setting>
+    <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+    <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
+    <b:widget-setting name='style.urlcolor'>#fefefe</b:widget-setting>
+    <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+    <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
   <div class='widget-content'>
 	<data:adCode/>
 	<b:include name='quickedit'/>
   </div>
 </b:includable>
-									   <b:includable id='defaultAdUnit'>
+  <b:includable id='defaultAdUnit'>
 		  <!-- Clear out style (need non-empty string) -->
 		  <b:with value='&quot;/* Done in css. */&quot;' var='style'>
 			<b:include name='super.defaultAdUnit'/>
 		  </b:with>
 		</b:includable>
-									 </b:widget>
-								   </b:section>
+</b:widget>
+</b:section>
 							<!-- End Post archive -->             
 						</div><!-- /.content -->
 					</div><!-- /.col-md-8 -->
@@ -6135,14 +6173,14 @@ a.btn {
 					<div class='col-md-4'>
 						<div class='sidebar'>
 						   <b:section class='sidebar-wrapper' id='sidebar' showaddelement='yes'>
-							 <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1'>
-							   <b:widget-settings>
-								 <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
-								 <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-								 <b:widget-setting name='showSnippets'>true</b:widget-setting>
-								 <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
-							   </b:widget-settings>
-							   <b:includable id='main'>
+<b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1'>
+  <b:widget-settings>
+    <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
+    <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+    <b:widget-setting name='showSnippets'>true</b:widget-setting>
+    <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
 		<b:if cond='data:title'><h2><data:title/></h2></b:if>
 		<div class='widget-content popular-posts'>
 		  <ul>
@@ -6193,77 +6231,121 @@ a.btn {
 		  <b:include name='quickedit'/>
 		</div>
 	  </b:includable>
-							 </b:widget>
-							 <b:widget id='AdSense2' locked='false' title='' type='AdSense'>
-							   <b:widget-settings>
-								 <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
-								 <b:widget-setting name='style.textcolor'>#a93e33</b:widget-setting>
-								 <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-								 <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-								 <b:widget-setting name='style.urlcolor'>#f4d6d3</b:widget-setting>
-								 <b:widget-setting name='style.linkcolor'>#fdfaf0</b:widget-setting>
-								 <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-							   </b:widget-settings>
-							   <b:includable id='main'>
+</b:widget>
+<b:widget id='AdSense2' locked='false' title='' type='AdSense' version='1'>
+  <b:widget-settings>
+    <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
+    <b:widget-setting name='style.textcolor'>#a93e33</b:widget-setting>
+    <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+    <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
+    <b:widget-setting name='style.urlcolor'>#f4d6d3</b:widget-setting>
+    <b:widget-setting name='style.linkcolor'>#fdfaf0</b:widget-setting>
+    <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
   <div class='widget-content'>
 	<data:adCode/>
 	<b:include name='quickedit'/>
   </div>
 </b:includable>
-							   <b:includable id='defaultAdUnit'>
+  <b:includable id='defaultAdUnit'>
 		  <!-- Clear out style (need non-empty string) -->
 		  <b:with value='&quot;/* Done in css. */&quot;' var='style'>
 			<b:include name='super.defaultAdUnit'/>
 		  </b:with>
 		</b:includable>
-							 </b:widget>
-							 <b:widget id='AdSense3' locked='false' title='' type='AdSense'>
-							   <b:widget-settings>
-								 <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
-								 <b:widget-setting name='style.textcolor'>#bf8b38</b:widget-setting>
-								 <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-								 <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-								 <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
-								 <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
-								 <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-							   </b:widget-settings>
-							   <b:includable id='main'>
-  <div class='widget-content'>
-	<data:adCode/>
-	<b:include name='quickedit'/>
-  </div>
-</b:includable>
-							   <b:includable id='defaultAdUnit'>
-		  <!-- Clear out style (need non-empty string) -->
-		  <b:with value='&quot;/* Done in css. */&quot;' var='style'>
-			<b:include name='super.defaultAdUnit'/>
-		  </b:with>
-		</b:includable>
-							 </b:widget>
-							 <b:widget id='AdSense4' locked='false' title='' type='AdSense'>
-							   <b:widget-settings>
-								 <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
-								 <b:widget-setting name='style.textcolor'>#374561</b:widget-setting>
-								 <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-								 <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-								 <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
-								 <b:widget-setting name='style.linkcolor'>#eed7c2</b:widget-setting>
-								 <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-							   </b:widget-settings>
-							   <b:includable id='main'>
-  <div class='widget-content'>
-	<data:adCode/>
-	<b:include name='quickedit'/>
-  </div>
-</b:includable>
-							   <b:includable id='defaultAdUnit'>
-		  <!-- Clear out style (need non-empty string) -->
-		  <b:with value='&quot;/* Done in css. */&quot;' var='style'>
-			<b:include name='super.defaultAdUnit'/>
-		  </b:with>
-		</b:includable>
-							 </b:widget>
-						   </b:section>
+</b:widget>
+<b:widget id='Feed1' locked='false' title='I &amp;amp; I Coding' type='Feed'>
+  <b:widget-settings>
+    <b:widget-setting name='feedUrl'>https://iandicoding.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
+    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
+    <b:widget-setting name='showItemDate'>false</b:widget-setting>
+    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
+    <h2><data:title/></h2>
+    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+      <span style='filter: alpha(25); opacity: 0.25;'>
+        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
+      </span>
+    </div>
+    <b:include name='quickedit'/>
+  </b:includable>
+</b:widget>
+<b:widget id='Feed2' locked='false' title='I &amp;amp; I Gaming' type='Feed'>
+  <b:widget-settings>
+    <b:widget-setting name='feedUrl'>https://iandigaming.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
+    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
+    <b:widget-setting name='showItemDate'>false</b:widget-setting>
+    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
+    <h2><data:title/></h2>
+    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+      <span style='filter: alpha(25); opacity: 0.25;'>
+        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
+      </span>
+    </div>
+    <b:include name='quickedit'/>
+  </b:includable>
+</b:widget>
+<b:widget id='Feed3' locked='false' title='I and I Watching' type='Feed'>
+  <b:widget-settings>
+    <b:widget-setting name='feedUrl'>https://iandiwatching.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
+    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
+    <b:widget-setting name='showItemDate'>false</b:widget-setting>
+    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
+    <h2><data:title/></h2>
+    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+      <span style='filter: alpha(25); opacity: 0.25;'>
+        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
+      </span>
+    </div>
+    <b:include name='quickedit'/>
+  </b:includable>
+</b:widget>
+<b:widget id='Feed4' locked='false' title='I and I Dreaddymck' type='Feed'>
+  <b:widget-settings>
+    <b:widget-setting name='feedUrl'>https://dreaddymck.blogspot.com/feeds/posts/default</b:widget-setting>
+    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
+    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
+    <b:widget-setting name='showItemDate'>false</b:widget-setting>
+    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
+    <h2><data:title/></h2>
+    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+      <span style='filter: alpha(25); opacity: 0.25;'>
+        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
+      </span>
+    </div>
+    <b:include name='quickedit'/>
+  </b:includable>
+</b:widget>
+<b:widget id='Feed5' locked='false' title='Listgrotto' type='Feed'>
+  <b:widget-settings>
+    <b:widget-setting name='feedUrl'>https://listgrotto.com/feed/</b:widget-setting>
+    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
+    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
+    <b:widget-setting name='showItemDate'>false</b:widget-setting>
+    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main'>
+    <h2><data:title/></h2>
+    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+      <span style='filter: alpha(25); opacity: 0.25;'>
+        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
+      </span>
+    </div>
+    <b:include name='quickedit'/>
+  </b:includable>
+</b:widget>
+</b:section>
 						</div><!-- /.sidebar -->
 					</div><!-- /.col-md-4 -->
 					<!-- End sidebar -->
@@ -6299,8 +6381,8 @@ a.btn {
 						<div class='col-lg-6'>
 							<ul class='footer-menu'>
 							<b:section id='menu' maxwidgets='1' name='Main Menu' showaddelement='yes'>
-							  <b:widget id='LinkList94' locked='true' title='Main Menu' type='LinkList' version='1'>
-								<b:includable id='main'>
+<b:widget id='LinkList94' locked='true' title='Main Menu' type='LinkList' version='1'>
+  <b:includable id='main'>
 								  <div class='widget-content'>
 									<ul class='menu' id='menu-main-nav' itemscope='' itemtype='http://schema.org/SiteNavigationElement'> 
 									  <b:loop values='data:links' var='link'>
@@ -6314,30 +6396,26 @@ a.btn {
 									</script>
 								  </div>
 								</b:includable>
-							  </b:widget>
-							</b:section>
+</b:widget>
+</b:section>
 							</ul>
 						</div><!-- /.col-lg-6 -->
 					</div><!-- /.row -->
 				</div><!-- /.container-fluid -->
 			</div><!-- /.footer-text -->
 		</footer>
-
-
-
-	
-
   </div><!-- /.wrapper -->
 
 
 <!--Page Navigation Starts-->
 <b:if cond='data:blog.pageType != &quot;item&quot;'>
 <b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+
 <script type='text/javascript'>
-var pageCount=6;
-var displayPageNum=6;
-var upPageWord =&#39;&#171; Previous&#39;;
-var downPageWord =&#39;Next &#187;&#39;;
+	var pageCount=4;
+	var displayPageNum=6;
+	var upPageWord =&#39;&#171; Previous&#39;;
+	var downPageWord =&#39;Next &#187;&#39;;
 </script>
 
 <!-- DREADDYMCK CUSTOM -->
@@ -6358,9 +6436,35 @@ function showpageCount(a){
 }
 
 //]]></script>
+
 </b:if>
 </b:if>
 <!--Page Navigation Ends -->
+
+
+
+
+<!-- fix for Passive Event Listeners warning-->
+<script type='text/javascript'>//<![CDATA[
+
+jQuery.event.special.touchstart = 
+{
+  setup: function( _, ns, handle )
+  {
+	if ( ns.includes("noPreventDefault") ) 
+	{
+	  this.addEventListener("touchstart", handle, { passive: false });
+	} 
+	else 
+	{
+	  this.addEventListener("touchstart", handle, { passive: true });
+	}
+  }
+};
+
+//]]>
+</script> 
+
 
 <script type='text/javascript'>
 //<![CDATA[
