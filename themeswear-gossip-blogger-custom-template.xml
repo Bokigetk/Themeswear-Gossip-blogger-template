@@ -7574,56 +7574,56 @@ $(window).resize(function(){
 
 <script language='javascript' type='text/javascript'>//<![CDATA[
 
-$(function() {
-
-		if(typeof(pageType) !== 'undefined'){
-			
-			/*
-				Note: 
-				gossip_feeds.Feed*.host feed hidden if match.
-				gossip_feeds.Feed*.pageType page to display.					
-			*/
-
-			var elements = $("[id*='Feed']:not([id$='feedItemListDisplay'])");
-			var gossip_feeds = {
-				"Feed1": {"host":["iandicoding.blogspot.com"], pageType: ["item"],title:"I & I Coding"},
-				"Feed2": {"host":["iandigaming.blogspot.com"], pageType: ["item"],title:"I & I Gaming" },
-				"Feed3": {"host":["iandiwatching.blogspot.com"], pageType: ["item","static_page","searchQuery","searchLabel"],title:"I & I Watching" },
-				"Feed4": {"host":["dreaddymck.blogspot.com"], pageType: ["index","item"],title:"I & I Dreaddymck" },
-				"Feed5": {"host":["listgrotto.com"], pageType: ["searchLabel"],title:"Listrotto" },
-			}
-
-			elements.hide();
-
-			elements.each(function(){
+	$(function() {
+	
+			if(typeof(pageType) !== 'undefined'){
 				
-				if( 
-					gossip_feeds[this.id] && 
-					! gossip_feeds[this.id].host.includes(window.location.host) && 
-					gossip_feeds[this.id].pageType.includes(pageType) 
-				)
-				{
-					$(this).show();	
-					if( ! $(this).find("h2").html().trim() && gossip_feeds[this.id].title ){
-
-						var elem = $('<a>',{
-								text: gossip_feeds[this.id].title,
-								title: gossip_feeds[this.id].title,
-								href: 'https://' + gossip_feeds[this.id].host,
-								click: function(){ BlahFunc( options.rowId );return false;},
-								target:"_blank"
-						});
-
-						$(this).find("h2").append(elem);
-
+				/*
+					Note: 
+					gossip_feeds.Feed*.host feed hidden if match.
+					gossip_feeds.Feed*.pageType page to display.					
+				*/
+	
+				var elements = $("[id*='Feed']:not([id$='feedItemListDisplay'])");
+				var gossip_feeds = {
+					"Feed1": {"host":["iandicoding.blogspot.com"], pageType: ["item"],title:"I & I Coding"},
+					"Feed2": {"host":["iandigaming.blogspot.com"], pageType: ["item"],title:"I & I Gaming" },
+					"Feed3": {"host":["iandiwatching.blogspot.com"], pageType: ["item","static_page","searchQuery","searchLabel"],title:"I & I Watching" },
+					"Feed4": {"host":["dreaddymck.blogspot.com"], pageType: ["index","item"],title:"I & I Dreaddymck" },
+					"Feed5": {"host":["listgrotto.com"], pageType: ["searchLabel"],title:"Listrotto" },
+				}
+	
+				elements.hide();
+	
+				elements.each(function(){
+					
+					if( 
+						gossip_feeds[this.id] && 
+						! gossip_feeds[this.id].host.includes(window.location.host) && 
+						gossip_feeds[this.id].pageType.includes(pageType) 
+					)
+					{
+						$(this).show();	
+						if( ! $(this).find("h2").html().trim() && gossip_feeds[this.id].title ){
+	
+							var elem = $('<a>',{
+									text: gossip_feeds[this.id].title,
+									title: gossip_feeds[this.id].title,
+									href: 'https://' + gossip_feeds[this.id].host,
+									click: function(){return;},
+									target:""
+							});
+	
+							$(this).find("h2").append(elem);
+	
+						}			
 					}			
-				}			
-
-			});
-		}
-});
-
-//]]></script>
+	
+				});
+			}
+	});
+	
+	//]]></script>
 
 
 </body>
