@@ -946,7 +946,7 @@ header .header-content .main-logo p {
 	font-family: 'Droid Serif', serif;
 	font-weight: 400;
 	font-size: 12px;
-	display: none;
+	display: inline-block;
 }
 header .header-content .main-logo.text-logo {
 	height: 80px
