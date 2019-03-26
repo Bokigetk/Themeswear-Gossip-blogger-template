@@ -3930,146 +3930,34 @@ h1.post-title.entry-title {
 <b:template-skin><![CDATA[
 body#layout{background-color:#F7F7F7}
 body#layout ul,body#layout li{list-style:none;padding:0}
-
-body#layout .editlink {
-	border: 1px solid;
-	border-radius: 2px;
-	padding: 5px 10px;
-	line-height: normal;
-	border-color: #777;
-	color: #777!important;
-}
-#layout:before {
-	content: 'Made With ❤  By Themeswear.com';
-	width: 101%;
-	display: inline-block;
-	background: #777;
-	color: #fff;
-	padding: 15px 0;
-	margin-bottom: 15px;
-	margin: -1px 0px 0px -1px;
-	font-family: monospace;
-	top: 0;
-	position: absolute;
-	left: 0;
-}
-#layout:after {
-	content: 'Thanks For Downloading :)';
-	width: 101%;
-	display: inline-block;
-	background: #464543;
-	color: #fff;
-	padding: 15px 0;
-	margin-bottom: 15px;
-	margin: -1px 0px 0px -1px;
-	font-family: monospace;
-	position: absolute;
-	left: 0;
-}
-
-body#layout .header-content {
-	margin: 20px 0px 35px;
-}
-body#layout div#header {
-	width: 55%;
-	float: left;
-	z-index: 999;
-}
-body#layout div#header-social {
-	width: 34%;
-	display: inline-block;
-}
-body#layout .section h4 {
-	background: #777;
-	color: #fff;
-	padding: 15px;
-	margin: 0px;
-	text-transform: capitalize;
-}
-body#layout div#content {
-	width: 55%;
-	z-index: 99;
-	float: left;
-}
-body#layout div#sidebar {
-	width: 34%;
-	display: inline-block;
-}
-body#layout footer{
-width: 100%;
-display: inline-block;
-}
-
-body#layout header:before {
-	content: "Header Area";
-	background: #777;
-	padding: 10px 80px;
-	color: #fff;
-	font-family: monospace;
-	z-index: 999999;
-	border-radius: 20px;
-	border: 1px solid #BF9408;
-	border-right: 0;
-	border-left: 0;
-}
-body#layout .content-wrapper:before {
-	content: "Content Area";
-	background: #777;
-	padding: 10px 80px;
-	color: #fff;
-	font-family: monospace;
-	z-index: 999999;
-	border-radius: 20px;
-	border: 1px solid #BF9408;
-	border-right: 0;
-	border-left: 0;
-	position: relative;
-	top: -25px;
-}
-body#layout footer:before {
-	content: "Footer Area";
-	background: #777;
-	padding: 10px 80px;
-	color: #fff;
-	font-family: monospace;
-	z-index: 999999;
-	border-radius: 20px;
-	border: 1px solid #BF9408;
-	border-right: 0;
-	border-left: 0;
-	position: relative;
-	display: inline-block;
-}
-
-
-
+body#layout .editlink{border:1px solid;border-radius:2px;padding:5px 10px;line-height:normal;border-color:#777;color:#777!important}#layout:before{content:'Made With ❤  By Themeswear.com';width:101%;display:inline-block;background:#777;color:#fff;padding:15px 0;margin-bottom:15px;margin:-1px 0 0 -1px;font-family:monospace;top:0;position:absolute;left:0}#layout:after{content:'Thanks For Downloading :)';width:101%;display:inline-block;background:#464543;color:#fff;padding:15px 0;margin-bottom:15px;margin:-1px 0 0 -1px;font-family:monospace;position:absolute;left:0}body#layout .header-content{margin:20px 0 35px}body#layout div#header{width:55%;float:left;z-index:999}body#layout div#header-social{width:34%;display:inline-block}body#layout .section h4{background:#777;color:#fff;padding:15px;margin:0;text-transform:capitalize}body#layout div#content{width:55%;z-index:99;float:left}body#layout div#sidebar{width:34%;display:inline-block}body#layout footer{width:100%;display:inline-block}body#layout header:before{content:"Header Area";background:#777;padding:10px 80px;color:#fff;font-family:monospace;z-index:999999;border-radius:20px;border:1px solid #bf9408;border-right:0;border-left:0}body#layout .content-wrapper:before{content:"Content Area";background:#777;padding:10px 80px;color:#fff;font-family:monospace;z-index:999999;border-radius:20px;border:1px solid #bf9408;border-right:0;border-left:0;position:relative;top:-25px}body#layout footer:before{content:"Footer Area";background:#777;padding:10px 80px;color:#fff;font-family:monospace;z-index:999999;border-radius:20px;border:1px solid #bf9408;border-right:0;border-left:0;position:relative;display:inline-block}
 ]]></b:template-skin>
+
 <b:if cond='data:blog.pageType != &quot;item&quot;'>
 <b:if cond='data:blog.pageType != &quot;static_page&quot;'>
 <style>
 .breadcrumbs {margin-left: 20px;}
-.post-archive.list-style.left-img ul li .post-item .caption {
-	margin-left: 260px;
-}
+.post-archive.list-style.left-img ul li .post-item .caption {	margin-left: 260px;}
 </style>
 </b:if>
 </b:if>
 <b:if cond='data:blog.pageType == &quot;item&quot;'>
 <style>
-.post-header {
-	display: inline-block;
-	width: 100%;
-}
-  .btn-main{margin:10px;}
+.post-header {display: inline-block;width: 100%;}
+.btn-main{margin:10px;}
 </style>
 </b:if>
 
-<!-- THEME EXTERNAL -->
 <script src='https://use.fontawesome.com/90ef38dbc3.js'/>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' type='text/javascript'/>
 
+<!-- fix for Passive Event Listeners warning-->
+<script type='text/javascript'>//<![CDATA[
+jQuery.event.special.touchstart={setup:function(t,e,s){e.includes("noPreventDefault")?this.addEventListener("touchstart",s,{passive:!1}):this.addEventListener("touchstart",s,{passive:!0})}};
+//]]>
+</script> 
 
-<!-- THEME DISPLAY -->
+<!-- GOSSIP SETTINGS -->
 <script type='text/javascript'>//<![CDATA[
 imgr = new Array();
 imgr[0] = ""; // set your own image
@@ -4082,74 +3970,73 @@ numposts3 = 4;
 numposts4 = 4;
 //]]>
 </script> 
-
-<b:if cond='data:blog.homepageUrl == &quot;https://iandigaming.blogspot.com/&quot;'>   
-
+<!-- DREADDYMCK CUSTOM -->
+<!-- default OWL carousel images per blog -->
+<b:if cond='data:blog.homepageUrl == &quot;https://iandigaming.blogspot.com/&quot;'>
 <script type='text/javascript'>
 //<![CDATA[
 imgr[0] ="https://3.bp.blogspot.com/-HtjmGwLoKYA/XFPcRJi3MXI/AAAAAAAAFxM/c8RwWsugo6oGaqW2VKGTxbjVqVLPLJLnQCLcBGAs/s320/i.and.i.gaming.background.jpg"
 //]]>
-</script>                            
-
-
+</script>
 <b:elseif cond='data:blog.homepageUrl == &quot;https://dreaddymck.blogspot.com/&quot;'/>   
-
 <script type='text/javascript'>
 //<![CDATA[
 imgr[0] ="https://2.bp.blogspot.com/-A8pckE7nWn4/XH381D_LOoI/AAAAAAAAF74/omFmL2R9-jIX8g8dEvfzWZY7fX0ASCh9gCLcBGAs/s1600/dreaddymck.music.background.jpg"
 //]]>
 </script>                              
-
 <b:elseif cond='data:blog.homepageUrl == &quot;https://iandiwatching.blogspot.com/&quot;'/>
-
 <script type='text/javascript'>
 //<![CDATA[
 imgr[0] = "https://2.bp.blogspot.com/-9gJu7sWy-Do/Wz7pzcdOMGI/AAAAAAAAFB4/qzsBfB500bsbs6nBhX0il2PpLdrWrvjiQCPcBGAYYCw/s320/i.and.i.watching.background.jpg"; 
 //]]>
 </script>
-
 <b:elseif cond='data:blog.homepageUrl == &quot;https://iandicoding.blogspot.com/&quot;'/>
-
 <script type='text/javascript'>
 //<![CDATA[
 imgr[0] = "https://3.bp.blogspot.com/-2niLlpDaSmY/XFPdA09ghbI/AAAAAAAAFxU/PSZrkCdXsuYaQg20vB50h32Gb7Ku6gOBQCLcBGAs/s320/ai-artificial-intelligence-blur-546819.jpg"; 
 //]]>
 </script>
-
- 
 <b:elseif cond='data:blog.homepageUrl == &quot;https://acidstainpro.blogspot.com/&quot;'/>
-
 <script type='text/javascript'>
 //<![CDATA[
 imgr[0] = "https://2.bp.blogspot.com/-9gJu7sWy-Do/Wz7pzcdOMGI/AAAAAAAAFB4/qzsBfB500bsbs6nBhX0il2PpLdrWrvjiQCPcBGAYYCw/s320/i.and.i.watching.background.jpg"; 
 //]]>
 </script>   
-
 </b:if>
-
-
+<!-- DREADDYMCK CUSTOM -->
+<!-- VARIABLE DEFINITIONS -->
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<script language='javascript' type='text/javascript'>//<![CDATA[
+const pageType = "item";
+//]]></script>
+</b:if>
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<script language='javascript' type='text/javascript'>//<![CDATA[
+const pageType = "index";
+//]]></script>
+</b:if>
+<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+<script language='javascript' type='text/javascript'>//<![CDATA[
+const pageType = "static_page";
+//]]></script>
+</b:if>
+<b:if cond='data:blog.searchQuery'>
+<script language='javascript' type='text/javascript'>//<![CDATA[
+const pageType = "searchQuery";
+//]]></script>
+</b:if>
+<b:if cond='data:blog.searchLabel'>
+<script language='javascript' type='text/javascript'>//<![CDATA[
+const pageType = "searchLabel";
+//]]></script>
+</b:if>	
+<!-- DREADDYMCK CUSTOM -->
+<!-- replacement request call for the original document.write -->
 <script type='text/javascript'>//<![CDATA[
-
-function _request(req, cb) {
-
-	cb = cb ? cb :  function (data) {
-						console.log(data);
-					}
-
-	$.ajax({
-			type: "POST",
-			url: req,
-			dataType: 'jsonp',
-		})
-		.done(cb)
-		.fail(function (xhr, textStatus, errorThrown) {
-			console.log(xhr.responseText);
-			console.log(textStatus);
-		});
-};
-
-//]]></script> 
-
+function _request(o,n){n=n||function(o){console.log(o)},$.ajax({type:"GET",url:o,dataType:"jsonp"}).done(n).fail(function(o,n,e){console.log(o.responseText),console.log(n)})}
+//]]></script>
+<!-- DREADDYMCK CUSTOM -->
+<!-- Owl carousel things -->
 <script type='text/javascript'>//<![CDATA[
 var _owl_container = ".featured-posts, .featured-posts-split";
 var _owl_tmp;
@@ -4413,43 +4300,7 @@ var _0xbbea=["\x73\x72\x63","\x2F\x73\x33\x35\x2D\x63\x2F","\x2F\x73\x38\x30\x2D
 </script>
 
 
-<!-- DREADDYMCK CUSTOM -->
-<!-- VARIABLE DEFINITIONS -->
-<b:if cond='data:blog.pageType == &quot;item&quot;'>
 
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "item";
-//]]></script>
-
-</b:if>
-<b:if cond='data:blog.url == data:blog.homepageUrl'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "index";
-//]]></script>
-
-</b:if>
-<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "static_page";
-//]]></script>
-
-</b:if>
-<b:if cond='data:blog.searchQuery'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "searchQuery";
-//]]></script>
-
-</b:if>
-<b:if cond='data:blog.searchLabel'>
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-var pageType = "searchLabel";
-//]]></script>
-
-</b:if>	
 
 
 &lt;/head&gt;&lt;!--<head/>--&gt;
@@ -6214,96 +6065,6 @@ a.btn {
 		  </b:with>
 		</b:includable>
 </b:widget>
-<b:widget id='Feed1' locked='false' title='' type='Feed'>
-  <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://iandicoding.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
-    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
-    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
-    <b:widget-setting name='showItemDate'>false</b:widget-setting>
-    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
-    <h2><data:title/></h2>
-    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
-      <span style='filter: alpha(25); opacity: 0.25;'>
-        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
-      </span>
-    </div>
-    <b:include name='quickedit'/>
-  </b:includable>
-</b:widget>
-<b:widget id='Feed2' locked='false' title='' type='Feed'>
-  <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://iandigaming.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
-    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
-    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
-    <b:widget-setting name='showItemDate'>false</b:widget-setting>
-    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
-    <h2><data:title/></h2>
-    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
-      <span style='filter: alpha(25); opacity: 0.25;'>
-        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
-      </span>
-    </div>
-    <b:include name='quickedit'/>
-  </b:includable>
-</b:widget>
-<b:widget id='Feed3' locked='false' title='' type='Feed'>
-  <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://iandiwatching.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
-    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
-    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
-    <b:widget-setting name='showItemDate'>false</b:widget-setting>
-    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
-    <h2><data:title/></h2>
-    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
-      <span style='filter: alpha(25); opacity: 0.25;'>
-        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
-      </span>
-    </div>
-    <b:include name='quickedit'/>
-  </b:includable>
-</b:widget>
-<b:widget id='Feed4' locked='false' title='' type='Feed'>
-  <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://dreaddymck.blogspot.com/feeds/posts/default?alt=rss</b:widget-setting>
-    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
-    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
-    <b:widget-setting name='showItemDate'>false</b:widget-setting>
-    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
-    <h2><data:title/></h2>
-    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
-      <span style='filter: alpha(25); opacity: 0.25;'>
-        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
-      </span>
-    </div>
-    <b:include name='quickedit'/>
-  </b:includable>
-</b:widget>
-<b:widget id='Feed5' locked='false' title='' type='Feed'>
-  <b:widget-settings>
-    <b:widget-setting name='feedUrl'>https://listgrotto.com/feed/</b:widget-setting>
-    <b:widget-setting name='openLinksInNewWindow'>true</b:widget-setting>
-    <b:widget-setting name='numItemsShow'>1</b:widget-setting>
-    <b:widget-setting name='showItemDate'>false</b:widget-setting>
-    <b:widget-setting name='showItemAuthor'>false</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
-    <h2><data:title/></h2>
-    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
-      <span style='filter: alpha(25); opacity: 0.25;'>
-        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
-      </span>
-    </div>
-    <b:include name='quickedit'/>
-  </b:includable>
-</b:widget>
 </b:section>
 						</div><!-- /.sidebar -->
 					</div><!-- /.col-md-4 -->
@@ -6378,23 +6139,200 @@ a.btn {
 </script>
 
 <!-- DREADDYMCK CUSTOM -->
-<script language='javascript' type='text/javascript'>//<![CDATA[
+<script language='javascript' type='text/javascript'>
+		//<![CDATA[
 
-function showpageCount(a){
-	var b=home_page_url;
-	var c=new Array();
-	var d=1;var e=1;
-	var f=0;
-	var g=0;
-	var h=0;var j='';var k='';var l='';
-	for(var i=0,post;post=a.feed.entry[i];i++){var m=post.published.$t.substring(0,19)+post.published.$t.substring(23,29);timestamp=encodeURIComponent(m);var n=post.title.$t;if(n!=''){if(f==0||(f%pageCount==(pageCount-1))){if(b.indexOf(timestamp)!=-1){d=e}if(n!='')e++;c[c.length]='/search?updated-max='+timestamp+'&max-results='+pageCount}}f++}for(var p=0;p<c.length;p++){if(p>=(d-displayPageNum-1)&&p<(d+displayPageNum)){if(g==0&&p==d-2){if(d==2){k='<span class="showpage up_page"><a href="/">'+upPageWord+'</a></span>'}else{k='<span class="showpage"><a href="'+c[p]+'">'+upPageWord+'</a></span>'}g++}if(p==(d-1)){j+='<span class="showpagePoint">'+d+'</span>'}else{if(p==0){j+='<span class="showpageNum"><a href="/">1</a></span>'}else{j+='<span class="showpageNum"><a href="'+c[p]+'">'+(p+1)+'</a></span>'}}if(h==0&&p==d){l='<span class="showpage"> <a href="'+c[p]+'">'+downPageWord+'</a></span>';h++}}}if(d>1){j=''+k+' '+j+' '}j='<div class="showpageArea"><span style="COLOR: #000;" class="showpageOf"> Pages ('+(e-1)+')</span>'+j;if(d<(e-1)){j+=l}if(e==1)e++;j+='</div>';var o=document.getElementsByName("pageArea");var q=document.getElementById("blog-pager");if(e<=2){j=''}for(var p=0;p<o.length;p++){o[p].innerHTML=j}if(o&&o.length>0){j=''}if(q){q.innerHTML=j}}function showpageCount2(a){var b=home_page_url;var c=new Array();var d=b.indexOf("/search/label/")!=-1;var e=d?b.substr(b.indexOf("/search/label/")+14,b.length):"";e=e.indexOf("?")!=-1?e.substr(0,e.indexOf("?")):e;var f=1;var g=1;var h=0;var j=0;var k=0;var l='';var m='';var n='';var o='<span class="showpageNum"><a href="/search/label/'+e+'?&max-results='+pageCount+'">';var b=home_page_url;for(var i=0,post;post=a.feed.entry[i];i++){var q=post.published.$t.substring(0,19)+post.published.$t.substring(23,29);timestamp=encodeURIComponent(q);var r=post.title.$t;if(r!=''){if(h==0||(h%pageCount==(pageCount-1))){if(b.indexOf(timestamp)!=-1){f=g}if(r!='')g++;c[c.length]='/search/label/'+e+'?updated-max='+timestamp+'&max-results='+pageCount}}h++}for(var p=0;p<c.length;p++){if(p>=(f-displayPageNum-1)&&p<(f+displayPageNum)){if(j==0&&p==f-2){if(f==2){m=o+upPageWord+'</a></span>'}else{m='<span class="showpage"><a href="'+c[p]+'">'+upPageWord+'</a></span>'}j++}if(p==(f-1)){l+='<span class="showpagePoint">'+f+'</span>'}else{if(p==0){l=o+'1</a></span>'}else{l+='<span class="showpageNum"><a href="'+c[p]+'">'+(p+1)+'</a></span>'}}if(k==0&&p==f){n='<span class="showpage"> <a href="'+c[p]+'">'+downPageWord+'</a></span>';k++}}}if(f>1){if(!d){l=''+m+' '+l+' '}else{l=''+m+' '+l+' '}}l='<div class="showpageArea"><span style="COLOR: #000;" class="showpageOf"> Pages ('+(g-1)+')</span>'+l;if(f<(g-1)){l+=n}if(g==1)g++;l+='</div>';var s=document.getElementsByName("pageArea");var t=document.getElementById("blog-pager");if(g<=2){l=''}for(var p=0;p<s.length;p++){s[p].innerHTML=l}if(s&&s.length>0){l=''}if(t){t.innerHTML=l}}var home_page_url=location.href;var thisUrl=home_page_url;if(thisUrl.indexOf("/search/label/")!=-1){if(thisUrl.indexOf("?updated-max")!=-1){var lblname1=thisUrl.substring(thisUrl.indexOf("/search/label/")+14,thisUrl.indexOf("?updated-max"))}else{var lblname1=thisUrl.substring(thisUrl.indexOf("/search/label/")+14,thisUrl.indexOf("?&max"))}}var home_page="/";if(thisUrl.indexOf("?q=")==-1){if(thisUrl.indexOf("/search/label/")==-1){
-		_request("/feeds/posts/summary?alt=json-in-script&max-results=99999", showpageCount)
-	}else{
-		_request("/feeds/posts/full/-/'+lblname1+'?alt=json-in-script&max-results=99999", showpageCount2)
-	}
-}
+		function showpageCount(a) {
+				var b = home_page_url;
+				var c = new Array();
+				var d = 1;
+				var e = 1;
+				var f = 0;
+				var g = 0;
+				var h = 0;
+				var j = '';
+				var k = '';
+				var l = '';
+				for (var i = 0, post; post = a.feed.entry[i]; i++) {
+						var m = post.published.$t.substring(0, 19) + post.published.$t.substring(23, 29);
+						timestamp = encodeURIComponent(m);
+						var n = post.title.$t;
+						if (n != '') {
+								if (f == 0 || (f % pageCount == (pageCount - 1))) {
+										if (b.indexOf(timestamp) != -1) {
+												d = e
+										}
+										if (n != '')
+												e++;
+										c[c.length] = '/search?updated-max=' + timestamp + '&max-results=' + pageCount
+								}
+						}
+						f++
+				}
+				for (var p = 0; p < c.length; p++) {
+						if (p >= (d - displayPageNum - 1) && p < (d + displayPageNum)) {
+								if (g == 0 && p == d - 2) {
+										if (d == 2) {
+												k = '<span class="showpage up_page"><a href="/">' + upPageWord + '</a></span>'
+										} else {
+												k = '<span class="showpage"><a href="' + c[p] + '">' + upPageWord + '</a></span>'
+										}
+										g++
+								}
+								if (p == (d - 1)) {
+										j += '<span class="showpagePoint">' + d + '</span>'
+								} else {
+										if (p == 0) {
+												j += '<span class="showpageNum"><a href="/">1</a></span>'
+										} else {
+												j += '<span class="showpageNum"><a href="' + c[p] + '">' + (p + 1) + '</a></span>'
+										}
+								}
+								if (h == 0 && p == d) {
+										l = '<span class="showpage"> <a href="' + c[p] + '">' + downPageWord + '</a></span>';
+										h++
+								}
+						}
+				}
+				if (d > 1) {
+						j = '' + k + ' ' + j + ' '
+				}
+				j = '<div class="showpageArea"><span style="COLOR: #000;" class="showpageOf"> Pages (' + (e - 1) + ')</span>' + j;
+				if (d < (e - 1)) {
+						j += l
+				}
+				if (e == 1)
+						e++;
+				j += '</div>';
+				var o = document.getElementsByName("pageArea");
+				var q = document.getElementById("blog-pager");
+				if (e <= 2) {
+						j = ''
+				}
+				for (var p = 0; p < o.length; p++) {
+						o[p].innerHTML = j
+				}
+				if (o && o.length > 0) {
+						j = ''
+				}
+				if (q) {
+						q.innerHTML = j
+				}
+		}
+		function showpageCount2(a) {
+				var b = home_page_url;
+				var c = new Array();
+				var d = b.indexOf("/search/label/") != -1;
+				var e = d ? b.substr(b.indexOf("/search/label/") + 14, b.length) : "";
+				e = e.indexOf("?") != -1 ? e.substr(0, e.indexOf("?")) : e;
+				var f = 1;
+				var g = 1;
+				var h = 0;
+				var j = 0;
+				var k = 0;
+				var l = '';
+				var m = '';
+				var n = '';
+				var o = '<span class="showpageNum"><a href="/search/label/' + e + '?&max-results=' + pageCount + '">';
+				var b = home_page_url;
+				for (var i = 0, post; post = a.feed.entry[i]; i++) {
+						var q = post.published.$t.substring(0, 19) + post.published.$t.substring(23, 29);
+						timestamp = encodeURIComponent(q);
+						var r = post.title.$t;
+						if (r != '') {
+								if (h == 0 || (h % pageCount == (pageCount - 1))) {
+										if (b.indexOf(timestamp) != -1) {
+												f = g
+										}
+										if (r != '')
+												g++;
+										c[c.length] = '/search/label/' + e + '?updated-max=' + timestamp + '&max-results=' + pageCount
+								}
+						}
+						h++
+				}
+				for (var p = 0; p < c.length; p++) {
+						if (p >= (f - displayPageNum - 1) && p < (f + displayPageNum)) {
+								if (j == 0 && p == f - 2) {
+										if (f == 2) {
+												m = o + upPageWord + '</a></span>'
+										} else {
+												m = '<span class="showpage"><a href="' + c[p] + '">' + upPageWord + '</a></span>'
+										}
+										j++
+								}
+								if (p == (f - 1)) {
+										l += '<span class="showpagePoint">' + f + '</span>'
+								} else {
+										if (p == 0) {
+												l = o + '1</a></span>'
+										} else {
+												l += '<span class="showpageNum"><a href="' + c[p] + '">' + (p + 1) + '</a></span>'
+										}
+								}
+								if (k == 0 && p == f) {
+										n = '<span class="showpage"> <a href="' + c[p] + '">' + downPageWord + '</a></span>';
+										k++
+								}
+						}
+				}
+				if (f > 1) {
+						if (!d) {
+								l = '' + m + ' ' + l + ' '
+						} else {
+								l = '' + m + ' ' + l + ' '
+						}
+				}
+				l = '<div class="showpageArea"><span style="COLOR: #000;" class="showpageOf"> Pages (' + (g - 1) + ')</span>' + l;
+				if (f < (g - 1)) {
+						l += n
+				}
+				if (g == 1)
+						g++;
+				l += '</div>';
+				var s = document.getElementsByName("pageArea");
+				var t = document.getElementById("blog-pager");
+				if (g <= 2) {
+						l = ''
+				}
+				for (var p = 0; p < s.length; p++) {
+						s[p].innerHTML = l
+				}
+				if (s && s.length > 0) {
+						l = ''
+				}
+				if (t) {
+						t.innerHTML = l
+				}
+		}
+		var home_page_url = location.href;
+		var thisUrl = home_page_url;
+		if (thisUrl.indexOf("/search/label/") != -1) {
+				if (thisUrl.indexOf("?updated-max") != -1) {
+						var lblname1 = thisUrl.substring(thisUrl.indexOf("/search/label/") + 14, thisUrl.indexOf("?updated-max"))
+				} 
+				else 
+				{
+					var lblname1 = thisUrl.substring(thisUrl.indexOf("/search/label/") + 14, thisUrl.length)  
+					if(thisUrl.indexOf("?&max") > 0){
+						lblname1 = thisUrl.substring(thisUrl.indexOf("/search/label/") + 14, thisUrl.indexOf("?&max"))
+					}else
+					if(thisUrl.indexOf("?max-results") > 0){
+						lblname1 = thisUrl.substring(thisUrl.indexOf("/search/label/") + 14, thisUrl.indexOf("?max-results"))
+					}
+				}
+		}
+		var home_page = "/";
+		if (thisUrl.indexOf("?q=") == -1) {
+				if (thisUrl.indexOf("/search/label/") == -1) {
+						_request("/feeds/posts/summary?alt=json-in-script&max-results=99999", showpageCount)
+				} else {
+						_request("/feeds/posts/full/-/"+lblname1+"?alt=json-in-script&max-results=99999", showpageCount2)
+				}
+		}
 
-//]]></script>
+		//]]>
+</script>
 
 </b:if>
 </b:if>
@@ -6403,26 +6341,7 @@ function showpageCount(a){
 
 
 
-<!-- fix for Passive Event Listeners warning-->
-<script type='text/javascript'>//<![CDATA[
 
-jQuery.event.special.touchstart = 
-{
-  setup: function( _, ns, handle )
-  {
-	if ( ns.includes("noPreventDefault") ) 
-	{
-	  this.addEventListener("touchstart", handle, { passive: false });
-	} 
-	else 
-	{
-	  this.addEventListener("touchstart", handle, { passive: true });
-	}
-  }
-};
-
-//]]>
-</script> 
 
 
 <script type='text/javascript'>
@@ -7567,63 +7486,6 @@ $(window).resize(function(){
 });
 
 //]]></script>
-
-
-<!-- DREADDMCK CUSTOM -->
-<!-- BLOGGER FEED DISPLAY CONTROL -->
-
-<script language='javascript' type='text/javascript'>//<![CDATA[
-
-	$(function() {
-	
-			if(typeof(pageType) !== 'undefined'){
-				
-				/*
-					Note: 
-					gossip_feeds.Feed*.host feed hidden if match.
-					gossip_feeds.Feed*.pageType page to display.					
-				*/
-	
-				var elements = $("[id*='Feed']:not([id$='feedItemListDisplay'])");
-				var gossip_feeds = {
-					"Feed1": {"host":["iandicoding.blogspot.com"], pageType: ["item"],title:"I & I Coding"},
-					"Feed2": {"host":["iandigaming.blogspot.com"], pageType: ["item"],title:"I & I Gaming" },
-					"Feed3": {"host":["iandiwatching.blogspot.com"], pageType: ["item","static_page","searchQuery","searchLabel"],title:"I & I Watching" },
-					"Feed4": {"host":["dreaddymck.blogspot.com"], pageType: ["index","item"],title:"I & I Dreaddymck" },
-					"Feed5": {"host":["listgrotto.com"], pageType: ["searchLabel"],title:"Listrotto" },
-				}
-	
-				elements.hide();
-	
-				elements.each(function(){
-					
-					if( 
-						gossip_feeds[this.id] && 
-						! gossip_feeds[this.id].host.includes(window.location.host) && 
-						gossip_feeds[this.id].pageType.includes(pageType) 
-					)
-					{
-						$(this).show();	
-						if( ! $(this).find("h2").html().trim() && gossip_feeds[this.id].title ){
-	
-							var elem = $('<a>',{
-									text: gossip_feeds[this.id].title,
-									title: gossip_feeds[this.id].title,
-									href: 'https://' + gossip_feeds[this.id].host,
-									click: function(){return;},
-									target:""
-							});
-	
-							$(this).find("h2").append(elem);
-	
-						}			
-					}			
-	
-				});
-			}
-	});
-	
-	//]]></script>
 
 
 </body>
