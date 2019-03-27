@@ -1,0 +1,22 @@
+{
+  "name": "themeswear-gossip-blogger-template",
+  "version": "1.0.0",
+  "description": "Name    : Gossip. Designer: Themeswear. Url     : http://www.Themeswear.com/. License : Creative Commons Attribution License.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreaddymck/Themeswear-Gossip-blogger-template.git"
+  },
+  "author": "dreaddymck",
+  "license": "CREATIVE COMMONS ATTRIBUTION 4.0 INTERNATIONAL LICENSE",
+  "bugs": {
+    "url": "https://github.com/dreaddymck/Themeswear-Gossip-blogger-template/issues"
+  },
+  "homepage": "https://github.com/dreaddymck/Themeswear-Gossip-blogger-template#readme",
+  "dependencies": {
+    "rss-parser": "^3.7.0"
+  }
+}
