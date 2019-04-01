@@ -16,7 +16,5 @@
     "url": "https://github.com/dreaddymck/Themeswear-Gossip-blogger-template/issues"
   },
   "homepage": "https://github.com/dreaddymck/Themeswear-Gossip-blogger-template#readme",
-  "dependencies": {
-    "rss-parser": "^3.7.0"
-  }
+  "dependencies": {}
 }
