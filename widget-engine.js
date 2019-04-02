@@ -52,13 +52,23 @@ class widget_engine {
     wp_render(data,config){
         let truncate_func=function(t){return"undefined"!==jQuery.truncate&&(t.str=jQuery.truncate(t.str,{length:t.length?t.length:150,finishBlock:!0,ellipsis:t.url?" <a href='"+t.url+"' target='_blank' title='more'>[...]</a>":""})),t.str};    
         let title = "";
-        let attachments = function(){            
-            let id = data[0].slug + "-media";
-            title = jQuery("<span>").html( data[d].title.rendered )[0].innerText;
-            jQuery('<a>',{ title: title, href: data[d].link, click: function(){return;}, target:""}).append(
+        let href = "";
+        let id ="";
+        let attachments = function(data){            
+            href = "";
+            if( typeof data._links["wp:featuredmedia"] !== "undefined" && data._links["wp:featuredmedia"][0].embeddable){
+                href = data._links["wp:featuredmedia"][0].href;                    
+            }else
+            if( typeof data._links["wp:attachment"] !== "undefined"  && data._links["wp:attachment"][0].embeddable ){
+                href = data._links["wp:attachment"][0].href;                     
+            } 
+            if(!href){return}
+            id = data.slug + "-media";
+            title = jQuery("<span>").html( data.title.rendered )[0].innerText;
+            jQuery('<a>',{ title: title, href: data.link, click: function(){return;}, target:""}).append(
                 jQuery("<img>").attr({ src:"", width:"100%", height:"auto", id:id, })
             ).appendTo(config.target);
-            jQuery.ajax({ type: "GET", url: data[0]._links["wp:featuredmedia"][0].href })
+            jQuery.ajax({ type: "GET", url:href })
             .done(function (data) { 
                 jQuery("#" + id).attr({src:data.source_url}) 
             })
@@ -67,25 +77,28 @@ class widget_engine {
                 console.log(textStatus);
             });             
         }
-        for(var d in data){
+        let render = function(data){
             if(config.header && config.header.title){
                 jQuery('<h2>').append(
                     jQuery('<a>',{ text: config.header.title, title: config.header.title, href: config.header.url, click: function(){return;}, target:""})
                 ).appendTo(config.target);
             }
-            if( typeof data[0]._links["wp:featuredmedia"] !== "undefined" && data[0]._links["wp:featuredmedia"][0].embeddable){
-                attachments(data[0]._links["wp:featuredmedia"][0].href);                    
-            }else
-            if( typeof data[0]._links["wp:attachment"] !== "undefined"  && data[0]._links["wp:attachment"][0].embeddable ){
-                attachments(data[0]._links["wp:attachment"][0].href);                     
-            }
-            title = jQuery("<span>").html( data[d].title.rendered )[0].innerText;
+            attachments(data);
+            title = jQuery("<span>").html( data.title.rendered )[0].innerText;
             jQuery('<p>').html(
-                jQuery('<a>',{ text: title, title: title, href: data[d].link, click: function(){return;}, target:""})
+                jQuery('<a>',{ text: title, title: title, href: data.link, click: function(){return;}, target:""})
             ).appendTo(config.target);
-            if(config.truncate){ data[d].content.rendered = truncate_func({str: data[d].content.rendered , url: data[d].link, length:config.truncate}) }    
-            jQuery('<p>').html(data[d].content.rendered).appendTo(config.target);
-        }                    
+            if(config.truncate){ data.content.rendered = truncate_func({str: data.content.rendered , url: data.link, length:config.truncate}) }    
+            jQuery('<p>').html(data.content.rendered).appendTo(config.target);
+        }
+        if( data instanceof Array ){
+            for(var d in data){
+                render(data[d]);
+            }
+        } else {
+            render(data);
+        }       
+                    
         jQuery(config.target).show();
     }
     blogger_render = function(data, config){
